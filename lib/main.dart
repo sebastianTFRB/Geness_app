@@ -1,35 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';  // Asegúrate de importar tu archivo de opciones de Firebase
+import 'firebase_options.dart';
+       // tu pantalla de inicio de sesión
+import 'login.dart';         // pantalla para administradores
+       // pantalla para pacientes
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();  // Asegura la inicialización de los widgets
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,  // Utiliza las opciones de configuración específicas de la plataforma
+    options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen(),
+      title: 'GenesApp',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        useMaterial3: true,
+      ),
+      home: const LoginScreen(), // Pantalla de inicio de sesión
     );
   }
 }
-
-class HomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Home Screen'),
-      ),
-      body: Center(
-        child: Text('Firebase Initialized!'),
-      ),
-    );
-  }
-}
-

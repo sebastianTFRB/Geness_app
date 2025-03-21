@@ -64,8 +64,7 @@ class DefaultFirebaseOptions {
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAzY-o8Fk3oEeYe0TEO7j-KV0cR3yGQtKM',
     appId: '1:880621036129:android:a97382f11a5e63383bc020',
-    messagingSenderId: '880621036129',gradlew signingReport
-
+    messagingSenderId: '880621036129',
     projectId: 'genesapp-960d8',
     storageBucket: 'genesapp-960d8.firebasestorage.app',
   );
