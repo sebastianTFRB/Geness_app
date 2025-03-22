@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-
+import '/usersScreen/perfil.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -9,11 +8,27 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Inicio - Paciente')),
-      body: const Center(
-        child: Text(
-          'Bienvenido, Paciente',
-          style: TextStyle(fontSize: 20),
+      appBar: AppBar(title: const Text('Panel de paciente')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Bienvenido, paciente',
+              style: TextStyle(fontSize: 20),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton.icon(
+              icon: const Icon(Icons.person),
+              label: const Text('Ver mi perfil'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const ProfileScreen()),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );
