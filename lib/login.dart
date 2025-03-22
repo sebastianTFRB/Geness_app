@@ -7,6 +7,7 @@ import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'adminScreen/admin.dart';
 import 'medicScreen/medico.dart';
 import 'pacientScreen/paciente.dart';
+import 'register.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -66,11 +67,19 @@ class _LoginScreenState extends State<LoginScreen> {
                         text: "Iniciar sesión con Google",
                         onPressed: () => _signInWithGoogle(),
                       ),
+                      
                       const SizedBox(height: 10),
                       if (_error.isNotEmpty)
                         Text(_error, style: const TextStyle(color: Colors.red)),
-
-                      
+                        TextButton(
+                        onPressed: () async {
+                          await GoogleSignIn().signOut();
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("Listo, ahora puedes elegir otra cuenta")),
+                          );
+                        },
+                        child: const Text("¿Usar otra cuenta de Google?"),
+                      )
                     ],
                     
                   ),
